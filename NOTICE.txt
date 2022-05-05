@@ -1,0 +1,272 @@
+Rust STL
+===============
+1. abs
+2. sin/cos/tan
+```
+use std::f64
+
+let x = f64::consts::FRAC_PI_2;
+
+let abs_difference = (x.sin() - 1.0).abs();
+
+assert!(abs_difference < 1e-10);
+```
+3. String
+https://doc.rust-lang.org/std/string/struct.String.html
+
+4. min/max
+```
+use std::cmp
+
+assert_eq!(1, cmp::min(1, 2));
+assert_eq!(2, cmp::min(2, 2));
+```
+
+5. swap
+```
+use std::mem;
+
+let mut x = 5;
+let mut y = 42;
+
+mem::swap(&mut x, &mut y);
+
+assert_eq!(42, x);
+assert_eq!(5, y);
+```
+
+6. gcd(no implement)
+```
+// gcd
+fn gcd(x: usize, y: usize) -> usize {
+    if y == 0 { x } else { gcd(y, x % y) }
+}
+
+// lcm
+fn lcm(x : usize, y: usize) -> usize {
+    x / gcd(x, y) * y
+}
+```
+
+7. rand
+```
+use rand::prelude::*;
+
+let x: u8 = random();
+println!("{}", x);
+
+if random() { // generates a boolean
+    println!("Heads!");
+}
+```
+
+8. time
+```
+use std::time::{Duration, Instant};
+use std::thread::sleep;
+
+let start = Instant::now();
+
+// sleep for 2 secs
+sleep(Duration::new(2, 0));
+
+let end = start.elapsed();
+println!("{}.{:03}", end.as_secs(), end.subsec_nanos() / 1_000_000);
+```
+
+9. rev
+```
+input! {
+    n: u32,
+    a: [u32; n],
+}
+println!("{:?}", a.iter().rev().cloned().collect::<Vec<u32>>());
+```
+
+10. sort
+```
+let mut a = [10, 11, 12];
+
+// ASC
+a.sort();
+
+// DESC
+a.sort_by(|x, y| y.cmp(x));
+```
+
+11, 12. Vec(vector, stack)
+https://doc.rust-lang.org/std/vec/struct.Vec.html
+
+13. VecDeque(queue)
+https://doc.rust-lang.org/std/collections/index.html
+```
+use std::collections::VecDeque;
+
+let deq = VecDeque::from([-1, 0, 1]);
+```
+
+14. BinaryHeap(priority_queue)
+```
+use std::collections::BinaryHeap;
+
+let mut heap = BinaryHeap::new();
+
+assert_eq!(heap.peek(), None);
+
+heap.push(1);
+heap.push(5);
+heap.push(2);
+
+assert_eq!(heap.peek(), Some(&5));
+
+assert_eq!(heap.len(), 3);
+
+assert_eq!(heap.pop(), Some(5));
+assert_eq!(heap.pop(), Some(2));
+assert_eq!(heap.pop(), Some(1));
+assert_eq!(heap.pop(), None);
+```
+
+15 HashMap(map)
+```
+use std::collections::HashMap;
+
+let mut m: HashMap<usize, usize> = HashMap::new();
+m.insert("Mercurty", 10);
+
+match m.get("Mercurty") {
+    Some(v) => println!("{}: {}", "Mercurty", v);
+    None => println!("{} does not exist", "Mercurty");
+}
+```
+
+16 lower_bound
+```
+pub trait BinarySearch<T> {
+    fn lower_bound(&self, x: &T) -> usize;
+    fn upper_bound(&self, x: &T) -> usize;
+}
+
+impl<T: Ord> BinarySearch<T> for [T] {
+    fn lower_bound(&self, x: &T) -> usize {
+        let mut low = 0;
+        let mut high = self.len();
+
+        while low != high {
+            let mid = (low + high) / 2;
+            match self[mid].cmp(x) {
+                Ordering::Less => {
+                    low = mid + 1;
+                }
+                Ordering::Equal | Ordering::Greater => {
+                    high = mid;
+                }
+            }
+        }
+        low
+    }
+
+    fn upper_bound(&self, x: &T) -> usize {
+        let mut low = 0;
+        let mut high = self.len();
+
+        while low != high {
+            let mid = (low + high) / 2;
+            match self[mid].cmp(x) {
+                Ordering::Less | Ordering::Equal => {
+                    low = mid + 1;
+                }
+                Ordering::Greater => {
+                    high = mid;
+                }
+            }
+        }
+        low
+    }
+```
+
+17 BTreeSet(set)
+```
+use std::collections::BTreeSet;
+
+let mut books = BTreeSet::new();
+
+books.insert("A Dance With Dragons");
+books.insert("To Kill a Mockingbird");
+books.insert("The Odyssey");
+books.insert("The Great Gatsby");
+
+if !books.contains("The Winds of Winter") {
+    println!("We have {} books, but The Winds of Winter ain't one.",
+             books.len());
+}
+
+books.remove("The Odyssey");
+
+for book in &books {
+    println!("{}", book);
+}
+```
+
+18, 19 tuple
+
+20 assert!
+```
+assert_eq!(2 + 2, 4);
+
+assert!(true);
+```
+
+21 count
+```
+let s: String = "aaaa";
+println!("{}", s.chars().filter(|&c| c == 'a').count());
+```
+
+22 find
+```
+let a = [1, 2, 3];
+let matched = a.iter().find(|&&p| a == 2);
+if let Some(p) = matched {}
+```
+
+23 next_permutation
+```
+pub fn next_permutation(nums: &mut [i32]) -> bool {
+    use std::cmp::Ordering;
+    // or use feature(array_windows) on nightly
+    let last_ascending = match nums.windows(2).rposition(|w| w[0] < w[1]) {
+        Some(i) => i,
+        None => {
+            nums.reverse();
+            return false;
+        }
+    };
+
+    let swap_with = nums[last_ascending + 1..]
+        .binary_search_by(|n| i32::cmp(&nums[last_ascending], n).then(Ordering::Less))
+        .unwrap_err(); // cannot fail because the binary search will never succeed
+    nums.swap(last_ascending, last_ascending + swap_with);
+    nums[last_ascending + 1..].reverse();
+    true
+}
+```
+
+24 count_ones
+```
+let c = (42 as u64).count_ones();
+println!("{}", c)
+```
+
+25 BitSet
+```
+extern crate bit_set;
+
+use bit_set::BitSet;
+
+let mut s = BitSet::new();
+s.insert(32);
+s.insert(37);
+s.insert(3);
+println!("s = {:?}", s);
+```
