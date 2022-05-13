@@ -49,18 +49,25 @@ macro_rules! read_value {
 
 fn main() {
     input! {
-        n: usize,
-        ab: [(i64, i64); n],
+        abc: [usize; 3],
+        d: usize,
     }
-    let mut min = std::i64::MAX;
-    for i in 0..n {
-        for j in 0..n {
-            let (s, g) = (ab[i].0, ab[j].1);
-            let d = ab.iter().fold(0i64, |sum, &(a, b)| {
-                sum + (s - a).abs() + (a - b).abs() + (b - g).abs()
-            });
-            min = std::cmp::min(min, d);
+    let mut z = abc;
+    let mut k = d;
+    while k > 0 {
+        if z[0] >= z[1] {
+            z[1] *= 2;
+        } else if z[1] >= z[2] {
+            z[2] *= 2;
         }
+        k -= 1;
     }
-    println!("{}", min);
+    println!(
+        "{}",
+        if z[0] < z[1] && z[1] < z[2] {
+            "Yes"
+        } else {
+            "No"
+        }
+    );
 }

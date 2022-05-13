@@ -50,17 +50,14 @@ macro_rules! read_value {
 fn main() {
     input! {
         n: usize,
-        ab: [(i64, i64); n],
     }
-    let mut min = std::i64::MAX;
-    for i in 0..n {
-        for j in 0..n {
-            let (s, g) = (ab[i].0, ab[j].1);
-            let d = ab.iter().fold(0i64, |sum, &(a, b)| {
-                sum + (s - a).abs() + (a - b).abs() + (b - g).abs()
-            });
-            min = std::cmp::min(min, d);
+    for i in 0..=(n / 4) {
+        for j in 0..=(n / 7) {
+            if i * 4 + j * 7 == n {
+                println!("Yes");
+                return;
+            }
         }
     }
-    println!("{}", min);
+    println!("No");
 }

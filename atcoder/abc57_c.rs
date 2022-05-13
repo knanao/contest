@@ -49,18 +49,30 @@ macro_rules! read_value {
 
 fn main() {
     input! {
-        n: usize,
-        ab: [(i64, i64); n],
+        n: u64,
     }
-    let mut min = std::i64::MAX;
-    for i in 0..n {
-        for j in 0..n {
-            let (s, g) = (ab[i].0, ab[j].1);
-            let d = ab.iter().fold(0i64, |sum, &(a, b)| {
-                sum + (s - a).abs() + (a - b).abs() + (b - g).abs()
-            });
-            min = std::cmp::min(min, d);
+
+    let mut ret = std::u64::MAX;
+    let mut i: u64 = 1;
+    while i * i <= n {
+        if n % i != 0 {
+            i += 1;
+            continue;
         }
+
+        let v = std::cmp::max(count_digit_number(i), count_digit_number(n / i));
+        ret = std::cmp::min(ret, v);
+
+        i += 1;
     }
-    println!("{}", min);
+    println!("{}", ret)
+}
+
+fn count_digit_number(mut n: u64) -> u64 {
+    let mut c = 0;
+    while n > 0 {
+        n /= 10;
+        c += 1;
+    }
+    c
 }
