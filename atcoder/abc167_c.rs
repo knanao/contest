@@ -53,34 +53,41 @@ fn main() {
     let cin = stdin();
     let mut sc = Scanner::new(cin.lock());
 
-    let (n, m, q): (usize, usize, usize) = (sc.next(), sc.next(), sc.next());
+    let n: usize = sc.next();
+    let m: usize = sc.next();
+    let x: u64 = sc.next();
 
-    let mut v: Vec<(usize, usize, u32, u32)> = vec![(0, 0, 0, 0); q];
-    for i in 0..q {
-        v[i] = (sc.next(), sc.next(), sc.next(), sc.next());
+    let mut c: Vec<u64> = vec![0; n];
+    let mut a: Vec<Vec<u64>> = vec![vec![0; m]; n];
+    for i in 0..n {
+        c[i] = sc.next();
+        for j in 0..m {
+            a[i][j] = sc.next();
+        }
     }
 
-    let mut ai = vec![0; n];
-    let ret = dfs(&mut ai, &v, 0, m);
-    println!("{}", ret);
-}
-
-fn dfs(ai: &mut Vec<u32>, v: &Vec<(usize, usize, u32, u32)>, i: usize, m: usize) -> u32 {
-    if ai.len() == i {
-        let mut ret = 0;
-        for &(a, b, c, d) in v {
-            if ai[b - 1] - ai[a - 1] == c {
-                ret += d;
+    let mut ret = std::u64::MAX;
+    'outer: for i in 0..(1 << n) {
+        let mut t = vec![0; m];
+        let mut ct = 0;
+        for j in 0..n {
+            if (i >> j & 1) == 1 {
+                for k in 0..m {
+                    t[k] += a[j][k];
+                }
+                ct += c[j];
             }
         }
-        return ret;
+        for j in t {
+            if j < x {
+                continue 'outer;
+            }
+        }
+        ret = std::cmp::min(ret, ct);
     }
-
-    let mut ret = 0;
-    let t = if i == 0 { 1 } else { ai[i - 1] };
-    for j in t..=m as u32 {
-        ai[i] = j;
-        ret = std::cmp::max(ret, dfs(ai, v, i + 1, m));
-    }
-    ret
+    if ret == std::u64::MAX {
+        println!("-1")
+    } else {
+        println!("{}", ret)
+    };
 }

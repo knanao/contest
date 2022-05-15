@@ -53,34 +53,43 @@ fn main() {
     let cin = stdin();
     let mut sc = Scanner::new(cin.lock());
 
-    let (n, m, q): (usize, usize, usize) = (sc.next(), sc.next(), sc.next());
-
-    let mut v: Vec<(usize, usize, u32, u32)> = vec![(0, 0, 0, 0); q];
-    for i in 0..q {
-        v[i] = (sc.next(), sc.next(), sc.next(), sc.next());
+    let n: usize = sc.next();
+    let mut xy: Vec<(i32, i32)> = vec![(0, 0); n];
+    let mut nums = vec![0 as i32; n];
+    for i in 0..n {
+        xy[i] = (sc.next(), sc.next());
+        nums[i] = (i + 1) as i32;
     }
 
-    let mut ai = vec![0; n];
-    let ret = dfs(&mut ai, &v, 0, m);
-    println!("{}", ret);
+    let mut c: f64 = 0.0;
+    let mut s: f64 = 0.0;
+    while {
+        c += 1.0;
+        for i in 0..n - 1 {
+            let (x1, y1) = xy[(nums[i] - 1) as usize];
+            let (x2, y2) = xy[(nums[i + 1] - 1) as usize];
+            s += (((x1 - x2).pow(2) + (y1 - y2).pow(2)) as f64).sqrt();
+        }
+        next_permutation(&mut nums)
+    } {}
+
+    println!("{:.10}", s / c);
 }
 
-fn dfs(ai: &mut Vec<u32>, v: &Vec<(usize, usize, u32, u32)>, i: usize, m: usize) -> u32 {
-    if ai.len() == i {
-        let mut ret = 0;
-        for &(a, b, c, d) in v {
-            if ai[b - 1] - ai[a - 1] == c {
-                ret += d;
-            }
+fn next_permutation(nums: &mut Vec<i32>) -> bool {
+    use std::cmp::Ordering;
+    let last_ascending = match nums.windows(2).rposition(|w| w[0] < w[1]) {
+        Some(i) => i,
+        None => {
+            nums.reverse();
+            return false;
         }
-        return ret;
-    }
+    };
 
-    let mut ret = 0;
-    let t = if i == 0 { 1 } else { ai[i - 1] };
-    for j in t..=m as u32 {
-        ai[i] = j;
-        ret = std::cmp::max(ret, dfs(ai, v, i + 1, m));
-    }
-    ret
+    let swap_with = nums[last_ascending + 1..]
+        .binary_search_by(|n| i32::cmp(&nums[last_ascending], n).then(Ordering::Less))
+        .unwrap_err(); // cannot fail because the binary search will never succeed
+    nums.swap(last_ascending, last_ascending + swap_with);
+    nums[last_ascending + 1..].reverse();
+    true
 }
