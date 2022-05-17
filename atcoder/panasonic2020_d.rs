@@ -1,4 +1,3 @@
-use std::collections::VecDeque;
 use std::io::*;
 use std::str::FromStr;
 
@@ -53,4 +52,21 @@ impl<R: Read> Scanner<R> {
 fn main() {
     let cin = stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let n: usize = sc.next();
+    dfs(n - 1, "a");
+}
+
+fn dfs(n: usize, out: &str) {
+    if n == 0 {
+        println!("{}", out);
+        return;
+    }
+    let max = out.as_bytes().iter().max().unwrap();
+    for b in b'a'..=max + 1 {
+        let mut t = out.to_owned();
+        t.push(b as char);
+
+        dfs(n - 1, &t);
+    }
 }
