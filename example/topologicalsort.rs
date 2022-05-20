@@ -53,22 +53,37 @@ fn main() {
     let cin = stdin();
     let mut sc = Scanner::new(cin.lock());
 
-    let (n, w): (usize, usize) = (sc.next(), sc.next());
-    let mut wv: Vec<(usize, usize)> = vec![(0, 0); n];
-    for i in 0..n {
-        wv[i] = (sc.next(), sc.next());
+    let (n, m): (usize, usize) = (sc.next(), sc.next());
+    let mut g: Vec<Vec<usize>> = vec![Vec::new(); n];
+
+    for _ in 0..m {
+        let (a, b): (usize, usize) = (sc.next(), sc.next());
+        g[a].push(b);
     }
-    let mut dp: Vec<Vec<usize>> = vec![vec![0; w + 1]; n + 1];
+
+    let mut seen: Vec<bool> = vec![false; n];
+    let mut order: Vec<usize> = Vec::new();
 
     for i in 0..n {
-        for j in 0..=w {
-            if wv[i].0 <= j {
-                dp[i + 1][j] = std::cmp::max(dp[i][j - wv[i].0] + wv[i].1, dp[i][j]);
-            } else {
-                dp[i + 1][j] = dp[i][j];
-            }
+        if seen[i] {
+            continue;
         }
+        dfs(i, &g, &mut seen, &mut order);
     }
 
-    println!("{}", dp[n][w]);
+    order.reverse();
+    println!("{:?}", order);
+}
+
+fn dfs(v: usize, g: &Vec<Vec<usize>>, seen: &mut Vec<bool>, order: &mut Vec<usize>) {
+    seen[v] = true;
+
+    for i in &g[v] {
+        if seen[*i] {
+            continue;
+        }
+        dfs(*i, g, seen, order);
+    }
+
+    order.push(v);
 }

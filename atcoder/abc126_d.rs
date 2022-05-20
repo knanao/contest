@@ -53,22 +53,31 @@ fn main() {
     let cin = stdin();
     let mut sc = Scanner::new(cin.lock());
 
-    let (n, w): (usize, usize) = (sc.next(), sc.next());
-    let mut wv: Vec<(usize, usize)> = vec![(0, 0); n];
-    for i in 0..n {
-        wv[i] = (sc.next(), sc.next());
+    let n: usize = sc.next();
+    let mut g: Vec<Vec<(usize, usize)>> = vec![Vec::new(); n];
+    for _ in 0..n - 1 {
+        let (v, u, w): (usize, usize, usize) = (sc.next(), sc.next(), sc.next());
+        g[v - 1].push((u - 1, w));
+        g[u - 1].push((v - 1, w))
     }
-    let mut dp: Vec<Vec<usize>> = vec![vec![0; w + 1]; n + 1];
 
-    for i in 0..n {
-        for j in 0..=w {
-            if wv[i].0 <= j {
-                dp[i + 1][j] = std::cmp::max(dp[i][j - wv[i].0] + wv[i].1, dp[i][j]);
-            } else {
-                dp[i + 1][j] = dp[i][j];
-            }
+    let mut colors: Vec<i32> = vec![-1; n];
+    dfs(&mut colors, &g, 0, 0);
+    colors.iter().for_each(|x| println!("{}", x));
+}
+
+fn dfs(colors: &mut Vec<i32>, g: &Vec<Vec<(usize, usize)>>, color: i32, z: usize) {
+    colors[z] = color;
+
+    for i in g[z].iter().clone() {
+        let &(v, w) = i;
+        if colors[v] != -1 {
+            continue;
+        }
+        if w % 2 == 0 {
+            dfs(colors, g, color, v);
+        } else {
+            dfs(colors, g, 1 - color, v);
         }
     }
-
-    println!("{}", dp[n][w]);
 }
