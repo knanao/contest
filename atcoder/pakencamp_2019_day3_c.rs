@@ -52,4 +52,24 @@ impl<R: Read> Scanner<R> {
 fn main() {
     let cin = stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let (n, m): (usize, usize) = (sc.next(), sc.next());
+    let mut a = vec![vec![0; m]; n];
+    for i in 0..n {
+        for j in 0..m {
+            a[i][j] = sc.next();
+        }
+    }
+
+    let mut ans: usize = 0;
+    for i in 0..m - 1 {
+        for j in i + 1..m {
+            let mut c: usize = 0;
+            for k in 0..n {
+                c += std::cmp::max(a[k][i], a[k][j]);
+            }
+            ans = std::cmp::max(ans, c);
+        }
+    }
+    println!("{}", ans);
 }

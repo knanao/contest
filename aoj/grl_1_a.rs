@@ -52,4 +52,40 @@ impl<R: Read> Scanner<R> {
 fn main() {
     let cin = stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let (v, e, r): (usize, usize, usize) = (sc.next(), sc.next(), sc.next());
+    let mut g: Vec<Vec<(usize, i32)>> = vec![vec![]; v];
+
+    for _ in 0..e {
+        let (s, t, d): (usize, usize, usize) = (sc.next(), sc.next(), sc.next());
+        g[s].push((t, -(d as i32)));
+    }
+
+    for i in dijkstra(&g, r) {
+        if i == std::i32::MIN {
+            println!("INF");
+        } else {
+            println!("{}", -i);
+        }
+    }
+}
+
+fn dijkstra(graph: &Vec<Vec<(usize, i32)>>, start: usize) -> Vec<i32> {
+    let mut dist = vec![std::i32::MIN; graph.len()];
+    let mut heap = std::collections::BinaryHeap::new();
+    dist[start] = 0;
+    heap.push((0, start));
+    while let Some((acc, pos)) = heap.pop() {
+        if dist[pos] > acc {
+            continue;
+        }
+
+        for &(dst, cost) in &graph[pos] {
+            if acc + cost > dist[dst] {
+                dist[dst] = acc + cost;
+                heap.push((acc + cost, dst));
+            }
+        }
+    }
+    return dist;
 }

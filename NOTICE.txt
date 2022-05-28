@@ -269,3 +269,68 @@ s.insert(37);
 s.insert(3);
 println!("s = {:?}", s);
 ```
+
+26 prime number
+```
+fn is_prime(n: usize) -> bool {
+    if n <= 1 {
+        return false;
+    }
+    for i in 2..=(n as f64).sqrt() as usize {
+        if n % i == 0 {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+27 modpow
+```
+fn modpow(x: usize, n: usize, m: usize) -> usize {
+    let mut res = 1;
+    let mut a = x;
+    let mut b = n;
+    while b > 0 {
+        if b & 1 == 1 {
+            res = res * a % m;
+        }
+        a = a * a % m;
+        b >>= 1;
+    }
+    return res;
+}
+```
+
+28 modinv
+```
+fn modinv(x: usize, m: usize) -> usize {
+    let mut a = x;
+    let mut b = m;
+    let mut u: i32 = 1;
+    let mut v: i32 = 0;
+
+    while b > 0 {
+        let t = a / b;
+        a -= t * b;
+        std::mem::swap(&mut a, &mut b);
+        u -= t as i32 * v;
+        std::mem::swap(&mut u, &mut v);
+    }
+    u %= m as i32;
+    if u < 0 {
+        u += m as i32;
+    }
+    return u as usize;
+}
+```
+
+29 cumulative sum
+```
+let mut s = vec![0; n + 1];
+for i in 0..n {
+    s[i + 1] = s[i] + a[i];
+}
+
+println("{}", s[right] - s[left]);
+```
