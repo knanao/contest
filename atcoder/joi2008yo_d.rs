@@ -53,41 +53,31 @@ fn main() {
     let cin = stdin();
     let mut sc = Scanner::new(cin.lock());
 
-    let n: usize = sc.next();
     let m: usize = sc.next();
-    let mut xy: Vec<Vec<usize>> = vec![vec![0; n]; n];
-    for _ in 0..m {
-        let (x, y): (usize, usize) = (sc.next(), sc.next());
-        xy[x - 1][y - 1] = 1;
-        xy[y - 1][x - 1] = 1;
+    let mut w: Vec<(i32, i32)> = vec![(0, 0); m];
+    for i in 0..m {
+        w[i] = (sc.next(), sc.next());
+    }
+    let n: usize = sc.next();
+    let mut p: Vec<(i32, i32)> = vec![(0, 0); n];
+    let mut v: Vec<(i32, i32)> = vec![(0, 0); n];
+    for i in 0..n {
+        p[i] = (sc.next(), sc.next());
+        v[i] = (p[i].0 - w[0].0, p[i].1 - w[0].1);
     }
 
-    let mut ans = 0;
-    for i in 0..1 << n {
-        let mut g: Vec<usize> = vec![];
-        for j in 0..n {
-            if i >> j & 1 == 1 {
-                g.push(j);
-            }
-        }
+    for j in 0..n {
         let mut ok = true;
-        for k in &g {
-            for l in &g {
-                if k == l {
-                    continue;
-                }
-                if xy[*k][*l] != 1 {
-                    ok = false;
-                    break;
-                }
+        for i in 1..m {
+            let (x, y) = (w[i].0 + v[j].0, w[i].1 + v[j].1);
+            if p.contains(&(x, y)) {
+                continue;
             }
-            if !ok {
-                break;
-            }
+            ok = false;
         }
         if ok {
-            ans = std::cmp::max(ans, g.len())
+            println!("{} {}", v[j].0, v[j].1);
+            return;
         }
     }
-    println!("{}", ans);
 }

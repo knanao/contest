@@ -54,40 +54,26 @@ fn main() {
     let mut sc = Scanner::new(cin.lock());
 
     let n: usize = sc.next();
-    let m: usize = sc.next();
-    let mut xy: Vec<Vec<usize>> = vec![vec![0; n]; n];
-    for _ in 0..m {
-        let (x, y): (usize, usize) = (sc.next(), sc.next());
-        xy[x - 1][y - 1] = 1;
-        xy[y - 1][x - 1] = 1;
-    }
+    let a: Vec<usize> = sc.vec(n);
+    let q: usize = sc.next();
+    let m: Vec<usize> = sc.vec(q);
 
-    let mut ans = 0;
+    let mut all: Vec<usize> = vec![];
     for i in 0..1 << n {
-        let mut g: Vec<usize> = vec![];
+        let mut c = 0;
         for j in 0..n {
             if i >> j & 1 == 1 {
-                g.push(j);
+                c += a[j];
             }
         }
-        let mut ok = true;
-        for k in &g {
-            for l in &g {
-                if k == l {
-                    continue;
-                }
-                if xy[*k][*l] != 1 {
-                    ok = false;
-                    break;
-                }
-            }
-            if !ok {
-                break;
-            }
-        }
-        if ok {
-            ans = std::cmp::max(ans, g.len())
+        all.push(c);
+    }
+
+    for i in 0..q {
+        if all.contains(&m[i]) {
+            println!("yes");
+        } else {
+            println!("no");
         }
     }
-    println!("{}", ans);
 }

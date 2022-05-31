@@ -54,39 +54,22 @@ fn main() {
     let mut sc = Scanner::new(cin.lock());
 
     let n: usize = sc.next();
-    let m: usize = sc.next();
-    let mut xy: Vec<Vec<usize>> = vec![vec![0; n]; n];
-    for _ in 0..m {
-        let (x, y): (usize, usize) = (sc.next(), sc.next());
-        xy[x - 1][y - 1] = 1;
-        xy[y - 1][x - 1] = 1;
+    let mut xy: Vec<(i32, i32)> = vec![];
+    let mut hs: std::collections::HashSet<(i32, i32)> = std::collections::HashSet::new();
+    for i in 0..n {
+        xy.push((sc.next(), sc.next()));
+        hs.insert(xy[i]);
     }
 
     let mut ans = 0;
-    for i in 0..1 << n {
-        let mut g: Vec<usize> = vec![];
-        for j in 0..n {
-            if i >> j & 1 == 1 {
-                g.push(j);
+    for i in 0..n - 1 {
+        for j in i + 1..n {
+            let v = (xy[j].0 - xy[i].0, xy[j].1 - xy[i].1);
+            if hs.contains(&(xy[i].0 + v.1, xy[i].1 - v.0))
+                && hs.contains(&(xy[j].0 + v.1, xy[j].1 - v.0))
+            {
+                ans = std::cmp::max(ans, v.0 * v.0 + v.1 * v.1);
             }
-        }
-        let mut ok = true;
-        for k in &g {
-            for l in &g {
-                if k == l {
-                    continue;
-                }
-                if xy[*k][*l] != 1 {
-                    ok = false;
-                    break;
-                }
-            }
-            if !ok {
-                break;
-            }
-        }
-        if ok {
-            ans = std::cmp::max(ans, g.len())
         }
     }
     println!("{}", ans);

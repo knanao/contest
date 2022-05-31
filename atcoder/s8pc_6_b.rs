@@ -64,3 +64,29 @@ fn main() {
     }
     println!("{}", min);
 }
+
+// fn main() {
+//     let cin = stdin();
+//     let mut sc = Scanner::new(cin.lock());
+//
+//     let n: usize = sc.next();
+//     let mut ab: Vec<(i64, i64)> = vec![(0, 0); n];
+//     for i in 0..n {
+//         ab[i] = (sc.next(), sc.next());
+//     }
+//
+//     let mut ans = std::usize::MAX;
+//     for i in 0..n {
+//         for j in 0..n {
+//             let mut c: i64 = 0;
+//             let (s, g) = (ab[i].0, ab[j].1);
+//             for k in 0..n {
+//                 c += (s - ab[k].0).abs();
+//                 c += ab[k].1 - ab[k].0;
+//                 c += (g - ab[k].1).abs();
+//             }
+//             ans = std::cmp::min(ans, c as usize);
+//         }
+//     }
+//     println!("{}", ans);
+// }
