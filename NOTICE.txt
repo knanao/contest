@@ -142,6 +142,8 @@ match m.get("Mercurty") {
 
 16 lower_bound
 ```
+use std::cmp::Ordering;
+
 pub trait BinarySearch<T> {
     fn lower_bound(&self, x: &T) -> usize;
     fn upper_bound(&self, x: &T) -> usize;
@@ -183,6 +185,7 @@ impl<T: Ord> BinarySearch<T> for [T] {
         }
         low
     }
+}
 ```
 
 17 BTreeSet(set)
