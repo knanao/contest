@@ -99,4 +99,34 @@ const INF: usize = 1 << 60;
 fn main() {
     let cin = stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let n: usize = sc.next();
+    let a: Vec<usize> = sc.vec(n);
+
+    let mut dp: Vec<Vec<usize>> = vec![vec![0; n + 1]; n];
+    if n % 2 == 1 {
+        for i in 0..n {
+            dp[i][0] = a[i];
+        }
+    }
+    for l in 1..n {
+        for i in 0..n {
+            let last = (i + l) % n;
+            if l % 2 == n % 2 {
+                dp[i][l] = if a[i] < a[last] {
+                    dp[i][l - 1]
+                } else {
+                    dp[(i + 1) % n][l - 1]
+                }
+            } else {
+                dp[i][l] = max(dp[i][l - 1] + a[last], dp[(i + 1) % n][l - 1] + a[i]);
+            }
+        }
+    }
+
+    let mut ans = 0;
+    for i in 0..n {
+        ans = max(dp[i][n - 1], ans);
+    }
+    println!("{}", ans);
 }

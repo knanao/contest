@@ -99,4 +99,26 @@ const INF: usize = 1 << 60;
 fn main() {
     let cin = stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let n: usize = sc.next();
+    let mut m: Vec<(usize, usize)> = vec![(0, 0); n];
+    for i in 0..n {
+        m[i] = (sc.next(), sc.next());
+    }
+
+    let mut dp = vec![vec![0; n + 1]; n];
+    for k in 1..n {
+        for i in 0..n {
+            let j = i + k;
+            if j > n - 1 {
+                continue;
+            }
+            let mut count = INF;
+            for l in i..j {
+                count = min(count, dp[i][l] + dp[l + 1][j] + m[i].0 * m[l].1 * m[j].1);
+            }
+            dp[i][j] = count;
+        }
+    }
+    println!("{}", dp[0][n - 1]);
 }
