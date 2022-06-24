@@ -1,8 +1,5 @@
-use std::cmp::{Ord, Ordering};
-#[allow(unused_imports)]
-use std::collections::{BinaryHeap, HashMap, VecDeque};
-use std::io;
-use std::io::{Read, Write};
+use std::cmp::*;
+use std::io::*;
 use std::str::FromStr;
 
 struct Scanner<R: Read> {
@@ -35,7 +32,7 @@ impl<R: Read> Scanner<R> {
         if let Some(s) = self.read() {
             s
         } else {
-            writeln!(io::stderr(), "Terminated with EOF").unwrap();
+            writeln!(stderr(), "Terminated with EOF").unwrap();
             std::process::exit(0);
         }
     }
@@ -100,20 +97,50 @@ impl<T: Ord> BinarySearch<T> for [T] {
 const INF: usize = 1 << 60;
 
 fn main() {
-    let cin = io::stdin();
+    let cin = stdin();
     let mut sc = Scanner::new(cin.lock());
 
-    let n: usize = sc.next();
-    let a: Vec<usize> = sc.vec(n);
+    let (n, m): (usize, usize) = (sc.next(), sc.next());
+    let mut a = vec![0; n];
+    let mut c = vec![0; 20];
+    let mut l = vec![vec![0; 101010]; 20];
+    for i in 0..n {
+        let v: usize = sc.next();
+        a[i] = v - 1;
+        c[a[i]] += 1;
+        l[a[i]][i] = 1;
+    }
 
-    let mut d: Vec<usize> = vec![];
-    for i in 0..a.len() {
-        let p = d.lower_bound(&a[i]);
-        if p == 0 {
-            d.insert(0, a[i]);
-        } else {
-            d[p - 1] = a[i];
+    for i in 0..m {
+        for j in 1..n {
+            l[i][j] += l[i][j - 1];
         }
     }
-    println!("{}", d.len());
+
+    let mut dp = vec![INF; 1 << 20];
+    dp[0] = 0;
+    for msk in 0..1 << m {
+        let mut done = 0;
+        for i in 0..m {
+            if msk & (1 << i) == 1 {
+                done += c[i];
+            }
+        }
+        for nxt in 0..m {
+            if msk & (1 << nxt) == 1 {
+                continue;
+            }
+            let mut tot = dp[msk];
+
+            let mut nxt_cnt = l[nxt][done + c[nxt] - 1];
+            if done > 0 {
+                nxt_cnt -= l[nxt][done - 1];
+            }
+            tot += c[nxt] - nxt_cnt;
+
+            dp[msk + (1 << nxt)] = min(dp[msk + (1 << nxt)], tot);
+        }
+    }
+
+    println!("{}", dp[(1 << m) - 1]);
 }

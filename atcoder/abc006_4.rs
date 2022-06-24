@@ -1,8 +1,5 @@
-use std::cmp::{Ord, Ordering};
-#[allow(unused_imports)]
-use std::collections::{BinaryHeap, HashMap, VecDeque};
-use std::io;
-use std::io::{Read, Write};
+use std::cmp::*;
+use std::io::*;
 use std::str::FromStr;
 
 struct Scanner<R: Read> {
@@ -35,7 +32,7 @@ impl<R: Read> Scanner<R> {
         if let Some(s) = self.read() {
             s
         } else {
-            writeln!(io::stderr(), "Terminated with EOF").unwrap();
+            writeln!(stderr(), "Terminated with EOF").unwrap();
             std::process::exit(0);
         }
     }
@@ -100,20 +97,27 @@ impl<T: Ord> BinarySearch<T> for [T] {
 const INF: usize = 1 << 60;
 
 fn main() {
-    let cin = io::stdin();
+    let cin = stdin();
     let mut sc = Scanner::new(cin.lock());
 
     let n: usize = sc.next();
     let a: Vec<usize> = sc.vec(n);
 
-    let mut d: Vec<usize> = vec![];
-    for i in 0..a.len() {
-        let p = d.lower_bound(&a[i]);
-        if p == 0 {
-            d.insert(0, a[i]);
+    let (_, c) = lis(&a);
+    println!("{}", c);
+}
+
+fn lis(a: &Vec<usize>) -> (usize, usize) {
+    let mut s = vec![a[0]];
+    let mut c = 0;
+    for i in 1..a.len() {
+        if a[i] > *s.last().unwrap() {
+            s.push(a[i]);
         } else {
-            d[p - 1] = a[i];
+            let p = s.lower_bound(&a[i]);
+            s[p] = a[i];
+            c += 1;
         }
     }
-    println!("{}", d.len());
+    return (s.len(), c);
 }
