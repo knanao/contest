@@ -102,4 +102,49 @@ const INF: usize = 1 << 60;
 fn main() {
     let cin = io::stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let (n, k): (usize, usize) = (sc.next(), sc.next());
+    let mut g: Vec<Vec<(usize, i32)>> = vec![vec![]; n];
+
+    let mut ans: Vec<i32> = vec![];
+    for _ in 0..k {
+        let o: usize = sc.next();
+        if o == 1 {
+            let (c, d, e): (usize, usize, i32) = (sc.next(), sc.next(), sc.next());
+            g[c - 1].push((d - 1, -(e as i32)));
+            g[d - 1].push((c - 1, -(e as i32)));
+        } else {
+            let (a, b): (usize, usize) = (sc.next(), sc.next());
+            ans.push(dijkstra(&mut g, a - 1, b - 1));
+        }
+    }
+
+    for i in 0..ans.len() {
+        println!("{}", ans[i]);
+    }
+}
+
+fn dijkstra(graph: &Vec<Vec<(usize, i32)>>, start: usize, end: usize) -> i32 {
+    let mut dist = vec![std::i32::MIN; 100];
+    let mut heap = BinaryHeap::new();
+    dist[start] = 0;
+    heap.push((0, start));
+    while let Some((acc, pos)) = heap.pop() {
+        if dist[pos] > acc {
+            continue;
+        }
+
+        for &(dst, cost) in &graph[pos] {
+            if acc + cost > dist[dst] {
+                dist[dst] = acc + cost;
+                heap.push((acc + cost, dst));
+            }
+        }
+    }
+
+    if dist[end] == std::i32::MIN {
+        return -1;
+    } else {
+        return -dist[end];
+    }
 }

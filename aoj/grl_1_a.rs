@@ -1,3 +1,4 @@
+use std::collections::{BinaryHeap, HashMap, VecDeque};
 use std::io::*;
 use std::str::FromStr;
 
@@ -72,7 +73,7 @@ fn main() {
 
 fn dijkstra(graph: &Vec<Vec<(usize, i32)>>, start: usize) -> Vec<i32> {
     let mut dist = vec![std::i32::MIN; graph.len()];
-    let mut heap = std::collections::BinaryHeap::new();
+    let mut heap = BinaryHeap::new();
     dist[start] = 0;
     heap.push((0, start));
     while let Some((acc, pos)) = heap.pop() {
