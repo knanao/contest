@@ -154,4 +154,35 @@ const INF: usize = 1 << 60;
 fn main() {
     let cin = io::stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let n: usize = sc.next();
+    let coord: Vec<(f64, f64, f64, f64)> = (0..n)
+        .map(|_| (sc.next(), sc.next(), sc.next(), sc.next()))
+        .collect();
+
+    let mut edges: Vec<(usize, usize, f64)> = vec![];
+    for i in 0..n {
+        for j in i + 1..n {
+            let (x, y, z, r) = coord[i];
+            let (x1, y1, z1, r1) = coord[j];
+            let (dx, dy, dz) = (x1 - x, y1 - y, z1 - z);
+            let dr = (dx * dx + dy * dy + dz * dz).sqrt() - (r + r1);
+            if dr > 0.0 {
+                edges.push((i, j, dr));
+            } else {
+                edges.push((i, j, 0.0));
+            }
+        }
+    }
+
+    edges.sort_by(|x, y| x.2.partial_cmp(&y.2).unwrap());
+    let mut uf = DisjointSet::new(n);
+    let mut ans = 0.0;
+    for (a, b, c) in edges {
+        if !uf.same(a, b) {
+            uf.unite(a, b);
+            ans += c;
+        }
+    }
+    println!("{:0.3}", ans);
 }

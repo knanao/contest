@@ -96,62 +96,50 @@ impl<T: Ord> BinarySearch<T> for [T] {
     }
 }
 
-struct DisjointSet {
-    numtree: usize,
-    data: Vec<usize>,
-    size: Vec<usize>,
-}
-
-#[allow(dead_code)]
-impl DisjointSet {
-    fn new(n: usize) -> Self {
-        Self {
-            numtree: n,
-            data: (0..n).map(|x| x).collect::<Vec<usize>>(),
-            size: vec![1; n],
-        }
-    }
-
-    fn find(&mut self, x: usize) -> usize {
-        if self.data[x] == x {
-            x
-        } else {
-            let px = self.data[x];
-            self.data[x] = self.find(px);
-            self.data[x]
-        }
-    }
-
-    fn unite(&mut self, x: usize, y: usize) {
-        let mut px = self.find(x);
-        let mut py = self.find(y);
-        if px == py {
-            return;
-        }
-        if self.size[py] < self.size[px] {
-            std::mem::swap(&mut px, &mut py);
-        }
-        self.data[px] = py;
-        self.size[py] += self.size[px];
-        self.numtree -= 1;
-    }
-
-    fn same(&mut self, x: usize, y: usize) -> bool {
-        let px = self.find(x);
-        let py = self.find(y);
-        self.data[px] == self.data[py]
-    }
-
-    fn tree_size(&mut self, x: usize) -> usize {
-        let px = self.find(self.data[x]);
-        self.size[px]
-    }
-}
-
 #[allow(dead_code)]
 const INF: usize = 1 << 60;
 
 fn main() {
     let cin = io::stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let n: usize = sc.next();
+    let mut a = vec![vec![0 as u64; n]; n];
+    for i in 0..n {
+        for j in 0..n {
+            a[i][j] = sc.next();
+        }
+    }
+
+    for k in 0..n {
+        for i in 0..n {
+            for j in 0..n {
+                if a[i][j] > a[i][k] + a[k][j] {
+                    println!("-1");
+                    return;
+                }
+            }
+        }
+    }
+
+    let mut ans = 0;
+    for i in 0..n {
+        for j in i + 1..n {
+            let mut check = true;
+            for k in 0..n {
+                if i == k || j == k {
+                    continue;
+                }
+
+                if a[i][j] == a[i][k] + a[k][j] {
+                    check = false;
+                    break;
+                }
+            }
+            if check {
+                ans += a[i][j];
+            }
+        }
+    }
+    println!("{}", ans);
 }

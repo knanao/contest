@@ -154,4 +154,29 @@ const INF: usize = 1 << 60;
 fn main() {
     let cin = io::stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let n: usize = sc.next();
+    let mut vx: Vec<(usize, usize, usize)> = (0..n)
+        .map(|i| (i, sc.next::<usize>(), sc.next::<usize>()))
+        .collect();
+    let mut vy = vx.clone();
+
+    let mut edge: Vec<(usize, usize, usize)> = vec![];
+    vx.sort_by_key(|x| x.1);
+    vy.sort_by_key(|x| x.2);
+    for i in 0..n - 1 {
+        edge.push((vx[i + 1].1 - vx[i].1, vx[i].0, vx[i + 1].0));
+        edge.push((vy[i + 1].2 - vy[i].2, vy[i].0, vy[i + 1].0));
+    }
+
+    edge.sort();
+    let mut uf = DisjointSet::new(n);
+    let mut ans = 0;
+    for (c, x, y) in edge {
+        if !uf.same(x, y) {
+            uf.unite(x, y);
+            ans += c;
+        }
+    }
+    println!("{}", ans);
 }

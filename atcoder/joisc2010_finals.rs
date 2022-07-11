@@ -154,4 +154,32 @@ const INF: usize = 1 << 60;
 fn main() {
     let cin = io::stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let (n, m, k) = (sc.next::<usize>(), sc.next::<usize>(), sc.next::<usize>());
+    let mut d: Vec<(usize, usize, usize)> = (0..m)
+        .map(|_| {
+            (
+                sc.next::<usize>() - 1,
+                sc.next::<usize>() - 1,
+                sc.next::<usize>(),
+            )
+        })
+        .collect();
+
+    let mut uf = DisjointSet::new(n);
+    let mut ans = 0;
+    let mut rest = n;
+    d.sort_by_key(|x| x.2);
+    for &(a, b, c) in d.iter() {
+        if rest == k {
+            break;
+        }
+
+        if !uf.same(a, b) {
+            uf.unite(a, b);
+            ans += c;
+            rest -= 1;
+        }
+    }
+    println!("{}", ans);
 }
