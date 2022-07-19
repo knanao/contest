@@ -150,10 +150,65 @@ impl DisjointSet {
 
 #[allow(dead_code)]
 const INF: usize = 1 << 60;
-#[allow(dead_code)]
 const MOD: usize = 1000000007;
 
 fn main() {
     let cin = io::stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let (x, y): (i64, i64) = (sc.next(), sc.next());
+    if (x + y) % 3 != 0 {
+        println!("0");
+        return;
+    }
+
+    // n+2m=x, 2n+m=y
+    // n=x-2m, m=y-2(x-2m)
+    // n=x-2m, m=(2x-y)/3
+    // n=x+(2y-4x)/3
+    // n=(2y-x)/3
+    let n: i64 = (2 * x - y) / 3;
+    let m: i64 = (2 * y - x) / 3;
+
+    if n < 0 || m < 0 {
+        println!("0");
+        return;
+    }
+
+    // n+mCn=n+mPn/n!
+    let mut a = (n + m) as usize;
+    let mut top = 1;
+    for _ in 0..n {
+        top = top % MOD * a % MOD;
+        a -= 1;
+    }
+
+    let mut bottom = 1;
+    let mut b = n as usize;
+    while b > 1 {
+        bottom = bottom % MOD * b % MOD;
+        b -= 1;
+    }
+
+    println!("{}", top * modinv(bottom, MOD) % MOD);
+}
+
+fn modinv(x: usize, m: usize) -> usize {
+    let mut a = x;
+    let mut b = m;
+    let mut u: i32 = 1;
+    let mut v: i32 = 0;
+
+    while b > 0 {
+        let t = a / b;
+        a -= t * b;
+        std::mem::swap(&mut a, &mut b);
+        u -= t as i32 * v;
+        std::mem::swap(&mut u, &mut v);
+    }
+    u %= m as i32;
+    if u < 0 {
+        u += m as i32;
+    }
+    return u as usize;
 }

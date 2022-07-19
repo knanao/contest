@@ -150,10 +150,48 @@ impl DisjointSet {
 
 #[allow(dead_code)]
 const INF: usize = 1 << 60;
-#[allow(dead_code)]
 const MOD: usize = 1000000007;
 
 fn main() {
     let cin = io::stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let (n, k): (usize, usize) = (sc.next(), sc.next());
+
+    // n+k-1Ck
+    let mut a = n + k - 1;
+    let mut top = 1;
+    for _ in 0..k {
+        top = top % MOD * a % MOD;
+        a -= 1;
+    }
+
+    let mut b = k;
+    let mut bottom = 1;
+    while b > 1 {
+        bottom = bottom % MOD * b % MOD;
+        b -= 1;
+    }
+
+    println!("{}", top * modinv(bottom, MOD) % MOD);
+}
+
+fn modinv(x: usize, m: usize) -> usize {
+    let mut a = x;
+    let mut b = m;
+    let mut u: i32 = 1;
+    let mut v: i32 = 0;
+
+    while b > 0 {
+        let t = a / b;
+        a -= t * b;
+        std::mem::swap(&mut a, &mut b);
+        u -= t as i32 * v;
+        std::mem::swap(&mut u, &mut v);
+    }
+    u %= m as i32;
+    if u < 0 {
+        u += m as i32;
+    }
+    return u as usize;
 }
