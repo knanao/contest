@@ -150,8 +150,31 @@ impl DisjointSet {
 
 #[allow(dead_code)]
 const INF: usize = 1 << 60;
+#[allow(dead_code)]
+const MOD: usize = 1000000007;
 
 fn main() {
     let cin = io::stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let n: usize = sc.next();
+    let a: Vec<usize> = sc.vec(n);
+
+    for i in 1..n + 1 {
+        let mut sum = 0;
+        for j in 0..i {
+            sum += a[j];
+        }
+
+        let mut last = i;
+        let mut max = sum;
+        while last < n {
+            sum += a[last];
+            sum -= a[last - i];
+            max = std::cmp::max(max, sum);
+            last += 1;
+        }
+
+        println!("{}", max);
+    }
 }

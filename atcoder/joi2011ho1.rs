@@ -151,7 +151,47 @@ impl DisjointSet {
 #[allow(dead_code)]
 const INF: usize = 1 << 60;
 
+// 2 2 3 6
+// (3, 6) - (3, 1) - (1, 6) + (1, 1)
+//
+// 3 5 4 7
+// (4, 7) - (4, 4) - (2, 7) + (2, 4)
+//
+// (c, d) - (c, b-1) - (a-1, d) + (a-1, b-1)
 fn main() {
     let cin = io::stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let (m, n, k): (usize, usize, usize) = (sc.next(), sc.next(), sc.next());
+    let mut acc = vec![vec![(0, 0, 0); n + 1]; m + 1];
+    for i in 1..=m {
+        let c = sc.chars();
+        for j in 1..=n {
+            match c[j - 1] {
+                'J' => acc[i][j].0 += 1,
+                'O' => acc[i][j].1 += 1,
+                'I' => acc[i][j].2 += 1,
+                _ => continue,
+            }
+        }
+    }
+
+    for i in 0..m {
+        for j in 0..n {
+            acc[i + 1][j + 1].0 += acc[i][j + 1].0 + acc[i + 1][j].0 - acc[i][j].0;
+            acc[i + 1][j + 1].1 += acc[i][j + 1].1 + acc[i + 1][j].1 - acc[i][j].1;
+            acc[i + 1][j + 1].2 += acc[i][j + 1].2 + acc[i + 1][j].2 - acc[i][j].2;
+        }
+    }
+
+    for _ in 0..k {
+        let (a, b, c, d): (usize, usize, usize, usize) =
+            (sc.next(), sc.next(), sc.next(), sc.next());
+        let (j, o, i) = (
+            acc[c][d].0 - acc[c][b - 1].0 - acc[a - 1][d].0 + acc[a - 1][b - 1].0,
+            acc[c][d].1 - acc[c][b - 1].1 - acc[a - 1][d].1 + acc[a - 1][b - 1].1,
+            acc[c][d].2 - acc[c][b - 1].2 - acc[a - 1][d].2 + acc[a - 1][b - 1].2,
+        );
+        println!("{} {} {}", j, o, i);
+    }
 }

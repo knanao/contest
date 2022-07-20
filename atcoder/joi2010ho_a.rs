@@ -150,8 +150,35 @@ impl DisjointSet {
 
 #[allow(dead_code)]
 const INF: usize = 1 << 60;
+#[allow(dead_code)]
+const MOD: usize = 100000;
 
 fn main() {
     let cin = io::stdin();
     let mut sc = Scanner::new(cin.lock());
+
+    let (n, m): (usize, usize) = (sc.next(), sc.next());
+    let s: Vec<usize> = sc.vec(n - 1);
+    let a: Vec<i32> = sc.vec(m);
+
+    let mut acc = vec![0; n];
+    for i in 1..n {
+        acc[i] = s[i - 1];
+    }
+    for i in 0..n - 1 {
+        acc[i + 1] += acc[i] % MOD;
+    }
+
+    let mut p = 0;
+    let mut ans = 0;
+    for (_, &v) in a.iter().enumerate() {
+        let pre = p;
+        p += v;
+        if p > pre {
+            ans += acc[p as usize] - acc[pre as usize];
+        } else {
+            ans += acc[pre as usize] - acc[p as usize];
+        }
+    }
+    println!("{}", ans % MOD);
 }
