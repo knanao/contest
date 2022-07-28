@@ -35,7 +35,7 @@ assert_eq!(42, x);
 assert_eq!(5, y);
 ```
 
-6. gcd(no implement)
+6. gcd
 ```
 // gcd
 fn gcd(x: usize, y: usize) -> usize {
