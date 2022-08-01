@@ -1,6 +1,6 @@
 use std::cmp::{Ord, Ordering};
 #[allow(unused_imports)]
-use std::collections::{BinaryHeap, HashMap, VecDeque};
+use std::collections::{BinaryHeap, HashMap, HashSet, VecDeque};
 use std::io;
 use std::io::{Read, Write};
 use std::str::FromStr;
@@ -151,7 +151,8 @@ impl DisjointSet {
 #[allow(dead_code)]
 const INF: usize = 1 << 60;
 
-fn main() {
-    let cin = io::stdin();
-    let mut sc = Scanner::new(cin.lock());
-}
+pub struct Solution {}
+
+impl Solution {}
+
+fn main() {}
