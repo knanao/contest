@@ -151,8 +151,4 @@ impl DisjointSet {
 #[allow(dead_code)]
 const INF: usize = 1 << 60;
 
-pub struct Solution {}
-
-impl Solution {}
-
 fn main() {}
