@@ -1,3 +1,6 @@
+#[allow(unused_imports)]
+use std::collections::{BinaryHeap, HashMap, HashSet, VecDeque};
+
 struct Solution {}
 
 impl Solution {
