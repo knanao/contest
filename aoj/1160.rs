@@ -98,5 +98,65 @@ fn main() {
     let cin = stdin();
     let mut sc = Scanner::new(cin.lock());
 
-    let (n, q): (usize, usize) = (sc.next(), sc.next());
+    loop {
+        let (w, h): (usize, usize) = (sc.next(), sc.next());
+        if (w, h) == (0, 0) {
+            return;
+        }
+        let mut c: Vec<Vec<usize>> = vec![vec![0; w]; h];
+        for i in 0..h {
+            for j in 0..w {
+                c[i][j] = sc.next();
+            }
+        }
+
+        let dx = vec![0, 1, 0, -1, 1, 1, -1, -1];
+        let dy = vec![1, 0, -1, 0, 1, -1, -1, 1];
+        let mut seen = vec![vec![false; w]; h];
+
+        let mut ans = 0;
+        for i in 0..h {
+            for j in 0..w {
+                if c[i][j] == 0 {
+                    continue;
+                }
+                if seen[i][j] {
+                    continue;
+                }
+                dfs(
+                    &mut seen, &c, &dx, &dy, i as i32, j as i32, w as i32, h as i32,
+                );
+                ans += 1;
+            }
+        }
+        println!("{}", ans);
+    }
+}
+
+fn dfs(
+    seen: &mut Vec<Vec<bool>>,
+    c: &Vec<Vec<usize>>,
+    dx: &Vec<i32>,
+    dy: &Vec<i32>,
+    x: i32,
+    y: i32,
+    w: i32,
+    h: i32,
+) {
+    seen[x as usize][y as usize] = true;
+    if c[x as usize][y as usize] == 0 {
+        return;
+    }
+
+    for i in 0..8 {
+        let pos_x = x + dx[i];
+        let pos_y = y + dy[i];
+        if pos_x < 0 || pos_x >= h || pos_y < 0 || pos_y >= w {
+            continue;
+        }
+        if seen[pos_x as usize][pos_y as usize] {
+            continue;
+        }
+        dfs(seen, c, dx, dy, pos_x, pos_y, w, h);
+    }
 }
