@@ -154,3 +154,5 @@ const INF: usize = 1 << 60;
 fn main() {}
 
 struct Solution {}
+
+impl Solution {}
