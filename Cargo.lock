@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "contest"
+name = "two-sum"
 version = "0.1.0"

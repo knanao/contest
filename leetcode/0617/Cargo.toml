@@ -1,0 +1,13 @@
+[package]
+name = "merge-two-binary-trees"
+version = "0.1.0"
+authors = ["knanao"]
+edition = "2021"
+
+# see more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[lib]
+name = "merge_two_binary_trees"
+path = "lib.rs"

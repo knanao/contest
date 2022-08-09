@@ -1,0 +1,13 @@
+[package]
+name = "first-unique-character-in-a-string"
+version = "0.1.0"
+authors = ["knanao"]
+edition = "2021"
+
+# see more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[lib]
+name = "first_unique_character_in_a_string"
+path = "lib.rs"

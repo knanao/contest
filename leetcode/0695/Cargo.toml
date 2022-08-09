@@ -1,0 +1,13 @@
+[package]
+name = "max-area-of-island"
+version = "0.1.0"
+authors = ["knanao"]
+edition = "2021"
+
+# see more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[lib]
+name = "max_area_of_island"
+path = "lib.rs"
