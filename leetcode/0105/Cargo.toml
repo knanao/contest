@@ -1,5 +1,5 @@
 [package]
-name = "word-ladder"
+name = "construct-binary-tree-from-preorder-and-inorder-traversal"
 version = "0.1.0"
 authors = ["knanao"]
 edition = "2021"
@@ -9,5 +9,5 @@ edition = "2021"
 [dependencies]
 
 [lib]
-name = "word_ladder"
+name = "construct_binary_tree_from_preorder_and_inorder_traversal"
 path = "lib.rs"
