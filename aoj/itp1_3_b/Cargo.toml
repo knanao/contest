@@ -1,0 +1,13 @@
+[package]
+name = "itp1_3_b"
+version = "0.1.0"
+authors = ["knanao"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[[bin]]
+name = "itp1_3_b"
+path = "itp1_3_b.rs"

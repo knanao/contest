@@ -1,0 +1,13 @@
+[package]
+name = "alds1_13_a"
+version = "0.1.0"
+authors = ["knanao"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[[bin]]
+name = "alds1_13_a"
+path = "alds1_13_a.rs"

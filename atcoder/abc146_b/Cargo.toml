@@ -1,0 +1,13 @@
+[package]
+name = "abc146_b"
+version = "0.1.0"
+authors = ["knanao"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[[bin]]
+name = "abc146_b"
+path = "abc146_b.rs"

@@ -7,6 +7,70 @@ name = "add-two-numbers"
 version = "0.1.0"
 
 [[package]]
+name = "alds1_10_a"
+version = "0.1.0"
+
+[[package]]
+name = "alds1_10_b"
+version = "0.1.0"
+
+[[package]]
+name = "alds1_10_c"
+version = "0.1.0"
+
+[[package]]
+name = "alds1_11_b"
+version = "0.1.0"
+
+[[package]]
+name = "alds1_11_c"
+version = "0.1.0"
+
+[[package]]
+name = "alds1_13_a"
+version = "0.1.0"
+
+[[package]]
+name = "alds1_5_a"
+version = "0.1.0"
+
+[[package]]
+name = "aoj-1127"
+version = "0.1.0"
+
+[[package]]
+name = "aoj-1149"
+version = "0.1.0"
+
+[[package]]
+name = "aoj-1160"
+version = "0.1.0"
+
+[[package]]
+name = "aoj-1166"
+version = "0.1.0"
+
+[[package]]
+name = "aoj-1167"
+version = "0.1.0"
+
+[[package]]
+name = "aoj-1193"
+version = "0.1.0"
+
+[[package]]
+name = "aoj-1611"
+version = "0.1.0"
+
+[[package]]
+name = "aoj-2013"
+version = "0.1.0"
+
+[[package]]
+name = "aoj-2199"
+version = "0.1.0"
+
+[[package]]
 name = "binary-tree-level-order-traversal"
 version = "0.1.0"
 
@@ -27,6 +91,26 @@ name = "convert-sorted-array-to-binary-search-tree"
 version = "0.1.0"
 
 [[package]]
+name = "dpl_1_a"
+version = "0.1.0"
+
+[[package]]
+name = "dpl_1_c"
+version = "0.1.0"
+
+[[package]]
+name = "dpl_1_d"
+version = "0.1.0"
+
+[[package]]
+name = "dpl_2_a"
+version = "0.1.0"
+
+[[package]]
+name = "dsl_1_a"
+version = "0.1.0"
+
+[[package]]
 name = "find-k-pairs-with-smallest-sums"
 version = "0.1.0"
 
@@ -35,11 +119,183 @@ name = "first-unique-character-in-a-string"
 version = "0.1.0"
 
 [[package]]
+name = "grl_1_a"
+version = "0.1.0"
+
+[[package]]
+name = "grl_1_c"
+version = "0.1.0"
+
+[[package]]
+name = "grl_2_a"
+version = "0.1.0"
+
+[[package]]
 name = "group-anagrams"
 version = "0.1.0"
 
 [[package]]
 name = "intersection-of-two-arrays"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_10_a"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_10_b"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_10_c"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_10_d"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_1_a"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_1_b"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_1_c"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_1_d"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_2_a"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_2_b"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_2_c"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_2_d"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_3_a"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_3_b"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_3_c"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_3_d"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_4_a"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_4_b"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_4_c"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_4_d"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_5_a"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_5_b"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_5_c"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_5_d"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_6_a"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_6_b"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_6_c"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_6_d"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_7_a"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_7_b"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_7_c"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_7_d"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_8_a"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_8_b"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_8_c"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_8_d"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_9_a"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_9_b"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_9_c"
+version = "0.1.0"
+
+[[package]]
+name = "itp1_9_d"
 version = "0.1.0"
 
 [[package]]
@@ -64,6 +320,14 @@ version = "0.1.0"
 
 [[package]]
 name = "minimum-depth-of-binary-tree"
+version = "0.1.0"
+
+[[package]]
+name = "ntl_1_a"
+version = "0.1.0"
+
+[[package]]
+name = "ntl_1_b"
 version = "0.1.0"
 
 [[package]]
