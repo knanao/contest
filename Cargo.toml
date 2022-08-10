@@ -1,3 +1,3 @@
 [workspace]
-members = ["leetcode/*"]
+members = ["leetcode/*", "example/*"]
 exclude = ["leetcode/0141", "leetcode/0142"]

@@ -15,6 +15,10 @@ name = "binary-tree-zigzag-level-order-traversal"
 version = "0.1.0"
 
 [[package]]
+name = "bubblesort"
+version = "0.1.0"
+
+[[package]]
 name = "construct-binary-tree-from-preorder-and-inorder-traversal"
 version = "0.1.0"
 
@@ -36,6 +40,10 @@ version = "0.1.0"
 
 [[package]]
 name = "intersection-of-two-arrays"
+version = "0.1.0"
+
+[[package]]
+name = "knapsack"
 version = "0.1.0"
 
 [[package]]
@@ -84,6 +92,10 @@ version = "0.1.0"
 
 [[package]]
 name = "top-k-frequent-elements"
+version = "0.1.0"
+
+[[package]]
+name = "topologicalsort"
 version = "0.1.0"
 
 [[package]]
