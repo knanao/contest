@@ -307,6 +307,10 @@ name = "kth-largest-element-in-a-stream"
 version = "0.1.0"
 
 [[package]]
+name = "longest-increasing-subsequence"
+version = "0.1.0"
+
+[[package]]
 name = "max-area-of-island"
 version = "0.1.0"
 

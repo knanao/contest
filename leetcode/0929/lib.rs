@@ -1,6 +1,8 @@
 use std::collections::HashSet;
 use std::iter::FromIterator;
 
+struct Solution;
+
 impl Solution {
     pub fn num_unique_emails(emails: Vec<String>) -> i32 {
         let mut ret = HashSet::new();

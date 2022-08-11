@@ -1,5 +1,7 @@
 use std::collections::VecDeque;
 
+struct Solution;
+
 impl Solution {
     pub fn num_islands(grid: Vec<Vec<char>>) -> i32 {
         let dx = vec![1, -1, 0, 0];

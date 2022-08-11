@@ -1,5 +1,7 @@
 use std::collections::{HashMap, HashSet, VecDeque};
 
+struct Solution;
+
 impl Solution {
     pub fn ladder_length(begin_word: String, end_word: String, word_list: Vec<String>) -> i32 {
         let l = begin_word.len();

@@ -1,6 +1,8 @@
 use std::collections::HashMap;
 use std::iter::FromIterator;
 
+struct Solution;
+
 impl Solution {
     pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
         let mut map: HashMap<String, Vec<String>> = HashMap::new();

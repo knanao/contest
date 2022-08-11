@@ -16,6 +16,8 @@ impl TreeNode {
     }
 }
 
+struct Solution;
+
 /*   5
     4 6
      3 7

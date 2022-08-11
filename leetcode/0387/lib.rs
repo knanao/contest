@@ -1,5 +1,7 @@
 use std::collections::HashMap;
 
+struct Solution;
+
 impl Solution {
     pub fn first_uniq_char(s: String) -> i32 {
         let mut c: HashMap<char, usize> = HashMap::new();

@@ -19,6 +19,8 @@ impl TreeNode {
     }
 }
 
+struct Solution;
+
 impl Solution {
     pub fn sorted_array_to_bst(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
         if nums.is_empty() {
