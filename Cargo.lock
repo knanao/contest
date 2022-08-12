@@ -135,6 +135,14 @@ name = "group-anagrams"
 version = "0.1.0"
 
 [[package]]
+name = "house-robber"
+version = "0.1.0"
+
+[[package]]
+name = "house-robber-II"
+version = "0.1.0"
+
+[[package]]
 name = "intersection-of-two-arrays"
 version = "0.1.0"
 
@@ -376,6 +384,14 @@ version = "0.1.0"
 
 [[package]]
 name = "unique-email-addresses"
+version = "0.1.0"
+
+[[package]]
+name = "unique-paths"
+version = "0.1.0"
+
+[[package]]
+name = "unique-paths-II"
 version = "0.1.0"
 
 [[package]]
