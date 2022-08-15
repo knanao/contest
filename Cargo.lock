@@ -91,6 +91,10 @@ name = "bubblesort"
 version = "0.1.0"
 
 [[package]]
+name = "coin-change"
+version = "0.1.0"
+
+[[package]]
 name = "construct-binary-tree-from-preorder-and-inorder-traversal"
 version = "0.1.0"
 
@@ -375,6 +379,10 @@ name = "reverse-linked-list"
 version = "0.1.0"
 
 [[package]]
+name = "search-insert-position"
+version = "0.1.0"
+
+[[package]]
 name = "subarray-sum-equals-k"
 version = "0.1.0"
 
@@ -408,6 +416,10 @@ version = "0.1.0"
 
 [[package]]
 name = "validate-binary-search-tree"
+version = "0.1.0"
+
+[[package]]
+name = "word-break"
 version = "0.1.0"
 
 [[package]]
