@@ -127,6 +127,10 @@ name = "find-k-pairs-with-smallest-sums"
 version = "0.1.0"
 
 [[package]]
+name = "find-minimum-in-rotated-sorted-array"
+version = "0.1.0"
+
+[[package]]
 name = "first-unique-character-in-a-string"
 version = "0.1.0"
 
@@ -347,6 +351,10 @@ name = "merge-two-binary-trees"
 version = "0.1.0"
 
 [[package]]
+name = "mergesort"
+version = "0.1.0"
+
+[[package]]
 name = "minimum-depth-of-binary-tree"
 version = "0.1.0"
 
@@ -376,6 +384,10 @@ version = "0.1.0"
 
 [[package]]
 name = "reverse-linked-list"
+version = "0.1.0"
+
+[[package]]
+name = "search-in-rotated-sorted-array"
 version = "0.1.0"
 
 [[package]]
