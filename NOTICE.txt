@@ -290,6 +290,8 @@ fn is_prime(n: usize) -> bool {
 
 27 modpow
 ```
+// 10^3
+// 3(2) = 011
 fn modpow(x: usize, n: usize, m: usize) -> usize {
     let mut res = 1;
     let mut a = x;

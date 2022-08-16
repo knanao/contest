@@ -91,6 +91,10 @@ name = "bubblesort"
 version = "0.1.0"
 
 [[package]]
+name = "capacity-to-ship-packages-within-d-days"
+version = "0.1.0"
+
+[[package]]
 name = "coin-change"
 version = "0.1.0"
 
@@ -323,6 +327,10 @@ name = "itp1_9_d"
 version = "0.1.0"
 
 [[package]]
+name = "k-th-symbol-in-grammar"
+version = "0.1.0"
+
+[[package]]
 name = "knapsack"
 version = "0.1.0"
 
@@ -372,6 +380,10 @@ version = "0.1.0"
 
 [[package]]
 name = "path-sum"
+version = "0.1.0"
+
+[[package]]
+name = "pow-x-n"
 version = "0.1.0"
 
 [[package]]
