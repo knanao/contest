@@ -343,6 +343,10 @@ name = "longest-increasing-subsequence"
 version = "0.1.0"
 
 [[package]]
+name = "longest-substring-without-repeating-characters"
+version = "0.1.0"
+
+[[package]]
 name = "max-area-of-island"
 version = "0.1.0"
 
@@ -364,6 +368,10 @@ version = "0.1.0"
 
 [[package]]
 name = "minimum-depth-of-binary-tree"
+version = "0.1.0"
+
+[[package]]
+name = "minimum-size-subarray-sum"
 version = "0.1.0"
 
 [[package]]
