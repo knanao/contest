@@ -391,6 +391,10 @@ name = "path-sum"
 version = "0.1.0"
 
 [[package]]
+name = "permutation"
+version = "0.1.0"
+
+[[package]]
 name = "pow-x-n"
 version = "0.1.0"
 
