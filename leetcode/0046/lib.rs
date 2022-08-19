@@ -24,10 +24,6 @@ impl Solution {
             .binary_search_by(|n| i32::cmp(&nums[last_ascending], n).then(Ordering::Less))
             .unwrap_err();
 
-        println!(
-            "last_ascending: {}, swap_with: {}, nums: {:?}",
-            last_ascending, swap_with, nums,
-        );
         nums.swap(last_ascending, last_ascending + swap_with);
         nums[last_ascending + 1..].reverse();
         true
