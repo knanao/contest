@@ -391,6 +391,10 @@ name = "move-zeroes"
 version = "0.1.0"
 
 [[package]]
+name = "next-permutation"
+version = "0.1.0"
+
+[[package]]
 name = "ntl_1_a"
 version = "0.1.0"
 
@@ -432,6 +436,10 @@ version = "0.1.0"
 
 [[package]]
 name = "search-insert-position"
+version = "0.1.0"
+
+[[package]]
+name = "string-to-integer"
 version = "0.1.0"
 
 [[package]]
@@ -480,4 +488,8 @@ version = "0.1.0"
 
 [[package]]
 name = "word-ladder"
+version = "0.1.0"
+
+[[package]]
+name = "zigzag-conversion"
 version = "0.1.0"

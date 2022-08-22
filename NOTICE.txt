@@ -235,23 +235,27 @@ if let Some(p) = matched {}
 
 23 next_permutation
 ```
-fn next_permutation(nums: &mut Vec<i32>) -> bool {
-    use std::cmp::Ordering;
-    let last_ascending = match nums.windows(2).rposition(|w| w[0] < w[1]) {
-        Some(i) => i,
-        None => {
-            nums.reverse();
-            return false;
-        }
-    };
+fn next_permutation<T>(nums: &mut [T]) -> bool
+    where
+        T: std::cmp::Ord,
+    {
+        use std::cmp::Ordering;
+        let last_ascending = match nums.windows(2).rposition(|w| w[0] < w[1]) {
+            Some(i) => i,
+            None => {
+                nums.reverse();
+                return false;
+            }
+        };
 
-    let swap_with = nums[last_ascending + 1..]
-        .binary_search_by(|n| i32::cmp(&nums[last_ascending], n).then(Ordering::Less))
-        .unwrap_err(); // cannot fail because the binary search will never succeed
-    nums.swap(last_ascending, last_ascending + swap_with);
-    nums[last_ascending + 1..].reverse();
-    true
-}
+        let swap_with = nums[last_ascending + 1..]
+            .binary_search_by(|n| nums[last_ascending].cmp(n).then(Ordering::Greater))
+            .unwrap_err();
+
+        nums.swap(last_ascending, last_ascending + swap_with);
+        nums[last_ascending + 1..].reverse();
+        true
+    }
 ```
 
 24 count_ones
