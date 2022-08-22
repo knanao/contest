@@ -175,6 +175,10 @@ name = "intersection-of-two-arrays"
 version = "0.1.0"
 
 [[package]]
+name = "is-subsequence"
+version = "0.1.0"
+
+[[package]]
 name = "itp1_10_a"
 version = "0.1.0"
 
