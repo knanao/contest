@@ -403,6 +403,10 @@ name = "ntl_1_b"
 version = "0.1.0"
 
 [[package]]
+name = "number-of-connected-components-in-an-undirected-graph"
+version = "0.1.0"
+
+[[package]]
 name = "number-of-islands"
 version = "0.1.0"
 

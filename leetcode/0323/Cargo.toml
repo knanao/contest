@@ -1,0 +1,13 @@
+[package]
+name = "number-of-connected-components-in-an-undirected-graph"
+version = "0.1.0"
+authors = ["knanao"]
+edition = "2021"
+
+# see more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[lib]
+name = "number_of_connected_components_in_an_undirected_graph"
+path = "lib.rs"
