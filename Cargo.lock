@@ -411,6 +411,10 @@ name = "number-of-islands"
 version = "0.1.0"
 
 [[package]]
+name = "paint-fence"
+version = "0.1.0"
+
+[[package]]
 name = "path-sum"
 version = "0.1.0"
 
