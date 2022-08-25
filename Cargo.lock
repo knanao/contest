@@ -371,6 +371,14 @@ name = "maximum-subarray"
 version = "0.1.0"
 
 [[package]]
+name = "meeting-rooms"
+version = "0.1.0"
+
+[[package]]
+name = "meeting-rooms-II"
+version = "0.1.0"
+
+[[package]]
 name = "merge-two-binary-trees"
 version = "0.1.0"
 
@@ -439,6 +447,10 @@ name = "reverse-linked-list"
 version = "0.1.0"
 
 [[package]]
+name = "reverse-string"
+version = "0.1.0"
+
+[[package]]
 name = "search-in-rotated-sorted-array"
 version = "0.1.0"
 
@@ -460,6 +472,10 @@ version = "0.1.0"
 
 [[package]]
 name = "subsets"
+version = "0.1.0"
+
+[[package]]
+name = "swap-nodes-in-pairs"
 version = "0.1.0"
 
 [[package]]
