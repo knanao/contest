@@ -451,6 +451,10 @@ name = "reverse-string"
 version = "0.1.0"
 
 [[package]]
+name = "search-in-a-binary-search-tree"
+version = "0.1.0"
+
+[[package]]
 name = "search-in-rotated-sorted-array"
 version = "0.1.0"
 

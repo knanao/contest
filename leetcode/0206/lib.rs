@@ -14,23 +14,37 @@ impl ListNode {
 struct Solution {}
 
 impl Solution {
+    // pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    //     let mut h = head;
+    //     let mut p = h.as_mut();
+    //     let mut stack: Vec<i32> = vec![];
+    //     while let Some(node) = p {
+    //         stack.push(node.val);
+    //         p = node.next.as_mut();
+    //     }
+
+    //     let mut ret = Some(Box::new(ListNode::new(0)));
+    //     let mut n = ret.as_mut().unwrap();
+    //     while !stack.is_empty() {
+    //         let v = stack.pop().unwrap();
+    //         n.next = Some(Box::new(ListNode::new(v)));
+    //         n = n.next.as_mut().unwrap();
+    //     }
+    //     ret.unwrap().next
+    // }
+    //
     pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        let mut h = head;
-        let mut p = h.as_mut();
-        let mut stack: Vec<i32> = vec![];
-        while let Some(node) = p {
-            stack.push(node.val);
-            p = node.next.as_mut();
+        if head == None || head.clone().unwrap().next == None {
+            return head;
         }
 
-        let mut ret = Some(Box::new(ListNode::new(0)));
-        let mut n = ret.as_mut().unwrap();
-        while !stack.is_empty() {
-            let v = stack.pop().unwrap();
-            n.next = Some(Box::new(ListNode::new(v)));
-            n = n.next.as_mut().unwrap();
+        if let Some(mut node) = head.clone() {
+            let p = Self::reverse_list(node.clone().next);
+            node.next.unwrap().next = head;
+            node.next = None;
+            return p;
         }
-        ret.unwrap().next
+        None
     }
 }
 
