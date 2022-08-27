@@ -1,5 +1,5 @@
 [package]
-name = "is-subsequence"
+name = "fibonacci-number"
 version = "0.1.0"
 authors = ["knanao"]
 edition = "2021"
@@ -9,5 +9,5 @@ edition = "2021"
 [dependencies]
 
 [lib]
-name = "is_subsequence"
+name = "fibonacci_number"
 path = "lib.rs"
