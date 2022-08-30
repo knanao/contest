@@ -115,6 +115,10 @@ name = "convert-sorted-array-to-binary-search-tree"
 version = "0.1.0"
 
 [[package]]
+name = "design-linked-list"
+version = "0.1.0"
+
+[[package]]
 name = "dpl_1_a"
 version = "0.1.0"
 
@@ -356,6 +360,10 @@ version = "0.1.0"
 
 [[package]]
 name = "kth-largest-element-in-a-stream"
+version = "0.1.0"
+
+[[package]]
+name = "linked-list-cycle-II"
 version = "0.1.0"
 
 [[package]]
