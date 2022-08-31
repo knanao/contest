@@ -363,10 +363,6 @@ name = "kth-largest-element-in-a-stream"
 version = "0.1.0"
 
 [[package]]
-name = "linked-list-cycle-II"
-version = "0.1.0"
-
-[[package]]
 name = "longest-increasing-subsequence"
 version = "0.1.0"
 
@@ -464,6 +460,14 @@ version = "0.1.0"
 
 [[package]]
 name = "remove-duplicates-from-sorted-list-II"
+version = "0.1.0"
+
+[[package]]
+name = "remove-linked-list-elements"
+version = "0.1.0"
+
+[[package]]
+name = "remove-nth-node-from-end-of-list"
 version = "0.1.0"
 
 [[package]]
