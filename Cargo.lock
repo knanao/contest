@@ -183,6 +183,10 @@ name = "house-robber-II"
 version = "0.1.0"
 
 [[package]]
+name = "insert-into-a-sorted-circular-linked-list"
+version = "0.1.0"
+
+[[package]]
 name = "intersection-of-two-arrays"
 version = "0.1.0"
 
@@ -435,7 +439,15 @@ name = "number-of-islands"
 version = "0.1.0"
 
 [[package]]
+name = "odd-even-linked-list"
+version = "0.1.0"
+
+[[package]]
 name = "paint-fence"
+version = "0.1.0"
+
+[[package]]
+name = "palindrome-linked-list"
 version = "0.1.0"
 
 [[package]]
