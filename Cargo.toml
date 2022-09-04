@@ -7,4 +7,5 @@ exclude = [
 	"leetcode/0160",
 	"leetcode/0430",
 	"leetcode/0708",
+	"leetcode/0138",
 ]
