@@ -183,10 +183,6 @@ name = "house-robber-II"
 version = "0.1.0"
 
 [[package]]
-name = "insert-into-a-sorted-circular-linked-list"
-version = "0.1.0"
-
-[[package]]
 name = "intersection-of-two-arrays"
 version = "0.1.0"
 
@@ -488,6 +484,10 @@ version = "0.1.0"
 
 [[package]]
 name = "reverse-string"
+version = "0.1.0"
+
+[[package]]
+name = "rotate-list"
 version = "0.1.0"
 
 [[package]]
