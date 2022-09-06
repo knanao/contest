@@ -79,7 +79,19 @@ name = "best-time-to-buy-and-sell-stock-II"
 version = "0.1.0"
 
 [[package]]
+name = "binary-tree-inorder-traversal"
+version = "0.1.0"
+
+[[package]]
 name = "binary-tree-level-order-traversal"
+version = "0.1.0"
+
+[[package]]
+name = "binary-tree-postorder-traversal"
+version = "0.1.0"
+
+[[package]]
+name = "binary-tree-preorder-traversal"
 version = "0.1.0"
 
 [[package]]
@@ -112,6 +124,10 @@ version = "0.1.0"
 
 [[package]]
 name = "convert-sorted-array-to-binary-search-tree"
+version = "0.1.0"
+
+[[package]]
+name = "count-univalue-subtrees"
 version = "0.1.0"
 
 [[package]]
@@ -520,6 +536,10 @@ version = "0.1.0"
 
 [[package]]
 name = "swap-nodes-in-pairs"
+version = "0.1.0"
+
+[[package]]
+name = "symmetric-tree"
 version = "0.1.0"
 
 [[package]]
