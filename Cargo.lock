@@ -119,6 +119,10 @@ name = "combination-sum"
 version = "0.1.0"
 
 [[package]]
+name = "construct-binary-tree-from-inorder-and-postorder-traversal"
+version = "0.1.0"
+
+[[package]]
 name = "construct-binary-tree-from-preorder-and-inorder-traversal"
 version = "0.1.0"
 
