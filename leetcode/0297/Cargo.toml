@@ -1,0 +1,15 @@
+[package]
+name = "serialize-and-deserialize-binary-tree"
+version = "0.1.0"
+authors = ["knanao"]
+edition = "2021"
+
+# see more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+bincode = "1.2.1"
+
+[lib]
+name = "serialize_and_deserialize_binary_tree"
+path = "lib.rs"
