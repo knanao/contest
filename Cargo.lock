@@ -79,6 +79,10 @@ name = "best-time-to-buy-and-sell-stock-II"
 version = "0.1.0"
 
 [[package]]
+name = "binary-search-tree-iterator"
+version = "0.1.0"
+
+[[package]]
 name = "binary-tree-inorder-traversal"
 version = "0.1.0"
 
@@ -141,6 +145,10 @@ version = "0.1.0"
 
 [[package]]
 name = "count-univalue-subtrees"
+version = "0.1.0"
+
+[[package]]
+name = "delete-node-in-a-bst"
 version = "0.1.0"
 
 [[package]]
@@ -209,6 +217,10 @@ version = "0.1.0"
 
 [[package]]
 name = "house-robber-II"
+version = "0.1.0"
+
+[[package]]
+name = "insert-into-a-binary-search-tree"
 version = "0.1.0"
 
 [[package]]

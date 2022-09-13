@@ -1,0 +1,13 @@
+[package]
+name = "insert-into-a-binary-search-tree"
+version = "0.1.0"
+authors = ["knanao"]
+edition = "2021"
+
+# see more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[lib]
+name = "insert_into_a_binary_search_tree"
+path = "lib.rs"
