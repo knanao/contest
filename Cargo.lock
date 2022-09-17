@@ -140,6 +140,10 @@ name = "construct-binary-tree-from-preorder-and-inorder-traversal"
 version = "0.1.0"
 
 [[package]]
+name = "contains-duplicate-III"
+version = "0.1.0"
+
+[[package]]
 name = "convert-sorted-array-to-binary-search-tree"
 version = "0.1.0"
 
@@ -409,6 +413,10 @@ version = "0.1.0"
 
 [[package]]
 name = "longest-substring-without-repeating-characters"
+version = "0.1.0"
+
+[[package]]
+name = "lowest-common-ancestor-of-a-binary-search-tree"
 version = "0.1.0"
 
 [[package]]
