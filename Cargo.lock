@@ -71,6 +71,10 @@ name = "aoj-2199"
 version = "0.1.0"
 
 [[package]]
+name = "balanced-binary-tree"
+version = "0.1.0"
+
+[[package]]
 name = "best-time-to-buy-and-sell-stock"
 version = "0.1.0"
 
