@@ -492,6 +492,10 @@ name = "number-of-islands"
 version = "0.1.0"
 
 [[package]]
+name = "odd-even-jump"
+version = "0.1.0"
+
+[[package]]
 name = "odd-even-linked-list"
 version = "0.1.0"
 
