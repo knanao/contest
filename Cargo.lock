@@ -144,6 +144,10 @@ name = "construct-binary-tree-from-preorder-and-inorder-traversal"
 version = "0.1.0"
 
 [[package]]
+name = "container-with-most-water"
+version = "0.1.0"
+
+[[package]]
 name = "contains-duplicate-III"
 version = "0.1.0"
 
@@ -197,6 +201,10 @@ version = "0.1.0"
 
 [[package]]
 name = "first-unique-character-in-a-string"
+version = "0.1.0"
+
+[[package]]
+name = "fruit-into-baskets"
 version = "0.1.0"
 
 [[package]]
