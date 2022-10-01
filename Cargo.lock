@@ -408,6 +408,10 @@ name = "itp1_9_d"
 version = "0.1.0"
 
 [[package]]
+name = "jump-game"
+version = "0.1.0"
+
+[[package]]
 name = "k-th-symbol-in-grammar"
 version = "0.1.0"
 
@@ -583,6 +587,10 @@ version = "0.1.0"
 
 [[package]]
 name = "reverse-string"
+version = "0.1.0"
+
+[[package]]
+name = "rotate-image"
 version = "0.1.0"
 
 [[package]]
