@@ -4,7 +4,7 @@ impl Solution {
         let mut ret = digits;
         ret.reverse();
         let mut i = 0;
-        while i < ret.len() {
+        while i <= ret.len() {
             ret[i] += 1;
             if ret[i] < 10 {
                 break;

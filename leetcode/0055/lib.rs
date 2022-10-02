@@ -3,29 +3,31 @@ use std::collections::VecDeque;
 struct Solution;
 impl Solution {
     pub fn can_jump(nums: Vec<i32>) -> bool {
-        if nums.len() == 1 {
-            return true;
+        /*
+         * 0: true
+         * 1: false
+         * 2: unknown
+         */
+        let mut dp: Vec<usize> = vec![2; nums.len()];
+        dp[nums.len() - 1] = 0;
+
+        Self::helper(0, &nums, &mut dp)
+    }
+
+    fn helper(p: usize, nums: &Vec<i32>, dp: &mut Vec<usize>) -> bool {
+        if dp[p] != 2 {
+            return dp[p] == 0;
         }
 
-        let g = nums.len() - 1;
-        let mut ps: VecDeque<usize> = VecDeque::new();
-        ps.push_back(0);
-        while !ps.is_empty() {
-            println!("{:?}", ps);
-            let p = ps.pop_front().unwrap();
-            if p >= g {
+        let max = std::cmp::min(p + nums[p] as usize, nums.len() - 1);
+        for i in p + 1..=max {
+            if Self::helper(i, nums, dp) {
+                dp[p] = 0;
                 return true;
             }
-            for i in 1..=nums[p] as usize {
-                if p + i >= g {
-                    return true;
-                }
-                if nums[p + i] == 0 {
-                    continue;
-                }
-                ps.push_back(p + i);
-            }
         }
+
+        dp[p] = 1;
         false
     }
 }
