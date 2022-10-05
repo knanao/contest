@@ -484,6 +484,10 @@ name = "minimum-size-subarray-sum"
 version = "0.1.0"
 
 [[package]]
+name = "minimum-window-substring"
+version = "0.1.0"
+
+[[package]]
 name = "move-zeroes"
 version = "0.1.0"
 
