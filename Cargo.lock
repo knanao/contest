@@ -432,6 +432,10 @@ name = "longest-increasing-subsequence"
 version = "0.1.0"
 
 [[package]]
+name = "longest-substring-with-at-most-two-distinct-characters"
+version = "0.1.0"
+
+[[package]]
 name = "longest-substring-without-repeating-characters"
 version = "0.1.0"
 
@@ -488,11 +492,19 @@ name = "minimum-window-substring"
 version = "0.1.0"
 
 [[package]]
+name = "missing-ranges"
+version = "0.1.0"
+
+[[package]]
 name = "move-zeroes"
 version = "0.1.0"
 
 [[package]]
 name = "multiply-strings"
+version = "0.1.0"
+
+[[package]]
+name = "next-closest-time"
 version = "0.1.0"
 
 [[package]]
