@@ -71,6 +71,10 @@ name = "aoj-2199"
 version = "0.1.0"
 
 [[package]]
+name = "backspace-string-compare"
+version = "0.1.0"
+
+[[package]]
 name = "balanced-binary-tree"
 version = "0.1.0"
 
@@ -193,6 +197,10 @@ version = "0.1.0"
 
 [[package]]
 name = "fibonacci-number"
+version = "0.1.0"
+
+[[package]]
+name = "find-and-replace-in-string"
 version = "0.1.0"
 
 [[package]]
@@ -428,6 +436,10 @@ name = "kth-largest-element-in-a-stream"
 version = "0.1.0"
 
 [[package]]
+name = "kth-largest-element-in-an-array"
+version = "0.1.0"
+
+[[package]]
 name = "license-key-formatting"
 version = "0.1.0"
 
@@ -456,6 +468,10 @@ name = "max-area-of-island"
 version = "0.1.0"
 
 [[package]]
+name = "maximize-distance-to-closest-person"
+version = "0.1.0"
+
+[[package]]
 name = "maximum-depth-of-binary-tree"
 version = "0.1.0"
 
@@ -472,6 +488,10 @@ name = "meeting-rooms-II"
 version = "0.1.0"
 
 [[package]]
+name = "merge-k-sorted-lists"
+version = "0.1.0"
+
+[[package]]
 name = "merge-two-binary-trees"
 version = "0.1.0"
 
@@ -481,6 +501,10 @@ version = "0.1.0"
 
 [[package]]
 name = "mergesort"
+version = "0.1.0"
+
+[[package]]
+name = "minimum-cost-to-hire-k-workers"
 version = "0.1.0"
 
 [[package]]
@@ -702,6 +726,10 @@ version = "0.1.0"
 
 [[package]]
 name = "topologicalsort"
+version = "0.1.0"
+
+[[package]]
+name = "trapping-rain-water"
 version = "0.1.0"
 
 [[package]]

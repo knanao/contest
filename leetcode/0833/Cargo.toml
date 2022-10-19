@@ -1,0 +1,13 @@
+[package]
+name = "find-and-replace-in-string"
+version = "0.1.0"
+authors = ["knanao"]
+edition = "2021"
+
+# see more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[lib]
+name = "find_and_replace_in_string"
+path = "lib.rs"
