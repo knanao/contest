@@ -1,0 +1,13 @@
+[package]
+name = "minimum-cost-to-hire-k-workers"
+version = "0.1.0"
+authors = ["knanao"]
+edition = "2021"
+
+# see more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[lib]
+name = "minimum_cost_to_hire_k_workers"
+path = "lib.rs"
